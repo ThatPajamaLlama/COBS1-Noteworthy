@@ -29,6 +29,7 @@ session_start();
 
 $noteTitle = $_POST['title'];
 $noteMessage = $_POST['message'];
+$id = $_POST['id'];
 
 $errors = [];
 
@@ -39,11 +40,12 @@ if (validate_inputs($noteTitle, $noteMessage, $errors)) {
     $username = $_SESSION['username'];
 
     $conn = mysqli_connect('localhost', 'root', '', 'thenotesapp');
-    $sql_newnote = "INSERT INTO note(username, title, message) VALUES ('$username', '$noteTitle', '$noteMessage')";
-    $rs_newnote = mysqli_query($conn, $sql_newnote);
-    create_toast("success", "Note Created", "Your note has been saved", "../../notes.php");
+    $sqlEdit = "UPDATE note SET title = '$noteTitle', message = '$noteMessage' WHERE id = $id";
+    $rsEdit = mysqli_query($conn, $sqlEdit);
+
+    create_toast("success", "Note Edited", "Your changes were saved", "../../notes.php");
 } else {
-    create_toast("error", "Note Creation Failed", $errors, "../../notes.php");
+    create_toast("error", "Note Creation Failed", $errors, "../../edit.php?id=$id");
 }
 
 

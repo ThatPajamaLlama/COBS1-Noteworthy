@@ -40,6 +40,7 @@ $username = $_POST['rusername'];
 $password = $_POST['rpassword'];
 
 include "../inc/db_connect.php";
+include "../inc/toast_handler.php";
 
 $errors = [];
 if (validate_inputs($username, $password, $errors, $conn)) {
@@ -49,9 +50,8 @@ if (validate_inputs($username, $password, $errors, $conn)) {
     $rs_newuser = mysqli_query($conn, $sql_newuser);
 
     $_SESSION['username'] = $username;
-    header('location: ../../notes.php');
+    create_toast("success", "Welcome!", "New account registered", "../../notes.php");
 } else {
-    include "../inc/toast_handler.php";
     create_toast("error", "Registration Failed", $errors, "../../default.php");
 }
 

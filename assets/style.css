@@ -121,7 +121,7 @@ body {
     width: 100%;
 }
 
-#home-page form input, #notes-page form input, #notes-page form textarea {
+#home-page form input, .userform input, .userform textarea {
     padding: 8px;
     background-color: #fff8cb;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -152,7 +152,7 @@ body {
     transform: scale(1.1);
 }
 
-#notes-page form {
+.userform {
     width: 50%;
     margin: 30px auto;
     background-color: #222;
@@ -160,7 +160,7 @@ body {
     border-radius: 5px;
 }
 
-#notes-page form h1 {
+.userform h1 {
     text-align: center;
     font-family: caniago;
     color: #fff69b;
@@ -168,26 +168,26 @@ body {
     font-size: 18pt;
 }
 
-#notes-page form .flex-container {
+.userform .flex-container {
     justify-content: space-between;
 }
 
-#notes-page form .flex-container div {
+.userform .flex-container div {
     width: 75%;
 }
 
-#notes-page form .flex-container textarea, #notes-page form .flex-container input[type="text"] {
+.userform .flex-container textarea, .userform .flex-container input[type="text"] {
     width: 100%;
     font-size: 12pt;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#notes-page form .flex-container input[type="text"] {
+.userform .flex-container input[type="text"] {
     margin-bottom: 10px;
 }
 
 
-#notes-page form textarea {
+.userform textarea {
     resize: none;
     border-radius: 50px;
     padding: 20px;
@@ -196,7 +196,7 @@ body {
 
 
 
-#notes-page form .flex-container input[type="submit"] {
+.userform .flex-container input[type="submit"] {
     width: 20%;
     background-color: #FFF29C;
     border: 2px solid #d1c67f;
@@ -208,7 +208,7 @@ body {
     font-size: 14pt;
 }
 
-#notes-page form .flex-container input[type="submit"]:hover {
+.userform .flex-container input[type="submit"]:hover {
     color: #111;
     background-color: #d1c67f;
     transition-duration: .2s;
@@ -220,7 +220,7 @@ body {
     align-items: stretch;
 }
 
-#notes-page .note {
+.note {
     border-radius: 5px;
     padding: 10px;
     width: 30%;
@@ -247,7 +247,7 @@ body {
     background-color: #e5b477;
 }
 
-#notes-page .note h1 {
+.note h1 {
     text-align: left;
     font-size: 14pt;
     font-family: caniago;
@@ -256,11 +256,129 @@ body {
     padding-bottom: 5px;
 }
 
-#notes-page .note h1 i {
+.note h1 i {
     padding-right: 10px;
     color: rgba(0,0,0, 0.2);
 }
 
-#notes-page .note p {
+.note p {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#notes-page .note .buttons a {
+    background-color: white;
+    box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
+    color: #222;
+    padding: 5px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10pt;
+    border-radius: 100px;
+    margin: 2px;   
+}
+
+#notes-page .note .buttons {
+    display: none;
+    padding: 4px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 4px;
+}
+
+#notes-page .note {
+    position: relative;
+}
+
+#notes-page .note:hover .buttons {
+    display: block;
+}
+
+#notes-page .note .edit:hover {
+    background-color: #43bccd;
+    color: white;
+}
+
+#notes-page .note .delete:hover {
+    background-color: #ea3546;
+    color: white;
+}
+
+#edit-page form {
+    position: relative;
+}
+
+#edit-page form a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 5px;
+    color: white;
+    font-size: 24pt;
+    transition-duration: 0.3s;
+}
+
+#edit-page form a:hover {
+    color: #43bccd;
+    transition-duration: 0.3s;
+}
+
+#delete-page .userform p {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+#delete-page .note {
+    background-color: #fff69b;
+    margin: 10px auto;
+    width: 60%;
+}
+
+#delete-page .userform .note h1 {
+    padding-bottom: 10px;
+    color: black;
+}
+
+#delete-page .userform .note p {
+    color: black;
+    text-align: left;
+}
+
+#delete-page .userform .flex-container { 
+    justify-content: center;
+}
+
+#delete-page .userform a {
+    display: block;
+    width: 25%;
+    background-color: #fff69b;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    border-radius: 5px;
+    margin: 20px;
+    transition-duration: 0.3s;
+}
+
+#delete-page .userform a:hover{
+    transition-duration: 0.3s;
+}
+
+#delete-page .userform a#yes {
+    background-color: #90be6d;
+}
+
+#delete-page .userform a#yes:hover {
+    background-color: #608047;
+}
+
+#delete-page .userform a#no {
+    background-color: #f94144;
+}
+
+#delete-page .userform a#no:hover {
+    background-color: #b32d2f;
 }

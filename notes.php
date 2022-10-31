@@ -10,7 +10,7 @@ $conn = mysqli_connect("localhost", "root", "", "thenotesapp");
 
 function DisplayNotes($conn) {
     $username = $_SESSION['username'];
-    $sql_usernotes = "SELECT title, message FROM note WHERE username LIKE '$username'";
+    $sql_usernotes = "SELECT id, title, message FROM note WHERE username LIKE '$username'";
     $rs_usernotes = mysqli_query($conn, $sql_usernotes);
     $colors = ["blue", "green", "pink", "yellow", "orange"];
 
@@ -20,6 +20,10 @@ function DisplayNotes($conn) {
         echo "<div class='note $color'>";
         echo    "<h1><i class='fa fa-thumb-tack' aria-hidden='true'></i>" . $note['title'] . "</h1>";
         echo    "<p>" . $note['message'] . "</p>";
+        echo    "<div class='buttons'>";
+        echo    "<a class='edit' href='edit.php?id=" . $note['id'] . "'><i class='fa fa-pencil' aria-hidden='true'></i></a>";
+        echo    "<a class='delete' href='delete.php?id=" . $note['id'] . "'><i class='fa fa-times' aria-hidden='true'></i></a>";
+        echo    "</div>";
         echo "</div>";
     }
 }
@@ -37,7 +41,7 @@ function DisplayNotes($conn) {
         <div id="content">
             <div class="wrapper">
                 <!-- FORM TO CREATE NEW NOTES -->
-                <form action="assets/proc/newnote_process.php" method="POST">
+                <form class="userform" action="assets/proc/newnote_process.php" method="POST">
                     <h1>New Note</h1>
                     <div class="flex-container">
                         <div>       
